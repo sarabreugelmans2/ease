@@ -30,3 +30,5 @@ Route::get('/profile', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/loggedin', 'UserLoggedIn@auth');
