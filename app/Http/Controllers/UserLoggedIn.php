@@ -20,18 +20,23 @@ class UserLoggedIn extends Controller
            // echo $res->getBody();
             $body = $res->getBody();
             $body_array = json_decode($body);
+            
             $token = $body_array->access_token;
             $firstName=$body_array->athlete->firstname;
             $lastName=$body_array->athlete->lastname;
             $email=$body_array->athlete->email;
-            \DB::table('users')->insert(
-                [   'firstName' => $firstName,
-                    'lastName' => $lastName,
-                    'email' => $email, 
-                    'token' => $token]
-            );
+            
+            if((\DB::table('users')->where('email', $email)->first())==null){
+                \DB::table('users')->insert(
+                    [   'firstName' => $firstName,
+                        'lastName' => $lastName,
+                        'email' => $email, 
+                        'token' => $token]
+                );
+            }
             //dd($token);
            return redirect('/');
+
         }else{
             echo $res->getStatusCode();
         }
