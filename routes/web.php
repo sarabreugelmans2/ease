@@ -33,4 +33,4 @@ Route::get('/dashboard', function () {
 
 Route::get('/loggedin', 'UserLoggedIn@auth');
 
-Route::get('/relax', 'relaxController@relax');
+Route::get('/relax', 'RelaxController@relax');

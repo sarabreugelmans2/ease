@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class relaxController extends Controller
+class RelaxController extends Controller
 {
     public function relax(){
         return view('relax');
