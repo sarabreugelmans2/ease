@@ -17,12 +17,21 @@ class UserLoggedIn extends Controller
         $res = $client->request('POST',$url );
         if($res->getStatusCode()==200){
             //echo $res->getHeaderLine('content-type');
-            //echo $res->getBody();
+           // echo $res->getBody();
             $body = $res->getBody();
             $body_array = json_decode($body);
             $token = $body_array->access_token;
+            $firstName=$body_array->athlete->firstname;
+            $lastName=$body_array->athlete->lastname;
+            $email=$body_array->athlete->email;
+            \DB::table('users')->insert(
+                [   'firstName' => $firstName,
+                    'lastName' => $lastName,
+                    'email' => $email, 
+                    'token' => $token]
+            );
             //dd($token);
-            return redirect('/');
+           return redirect('/');
         }else{
             echo $res->getStatusCode();
         }

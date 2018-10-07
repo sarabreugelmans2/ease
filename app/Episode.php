@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Episode extends Model
 {
-    public $table = "episode";
+   
     public function activity()
     {
         return $this->belongsTo('App\Activity');

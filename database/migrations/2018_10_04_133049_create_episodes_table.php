@@ -13,7 +13,7 @@ class CreateEpisodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('episode', function (Blueprint $table) {
+        Schema::create('episodes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('habit_id');
             $table->string('name');
@@ -30,6 +30,6 @@ class CreateEpisodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('episode');
+        Schema::dropIfExists('episodes');
     }
 }

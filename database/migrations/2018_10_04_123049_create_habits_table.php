@@ -13,7 +13,7 @@ class CreateHabitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('habit', function (Blueprint $table) {
+        Schema::create('habits', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->text('description');
@@ -27,6 +27,6 @@ class CreateHabitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habit');
+        Schema::dropIfExists('habits');
     }
 }
