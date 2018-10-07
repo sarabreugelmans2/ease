@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Episode extends Model
 {
-   
-    public function activity()
+    public function habits()
     {
-        return $this->belongsTo('App\Activity');
+        return $this->belongsTo('App\Habit');
     }
     public function users()
     {
