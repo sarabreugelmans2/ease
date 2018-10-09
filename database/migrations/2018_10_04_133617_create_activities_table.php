@@ -20,6 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->integer('user_id');
             $table->dateTime('startTime');
             $table->dateTime('endTime');
+            $table->boolean('finished')->default(false);
         });
     }
 

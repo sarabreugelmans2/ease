@@ -36,3 +36,5 @@ Route::get('/loggedin', 'UserLoggedIn@auth');
 Route::get('/relax', 'RelaxController@relax');
 
 Route::post('/', 'RelaxController@store');
+
+Route::get('/calendar', 'CalendarController@show');
