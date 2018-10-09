@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Relax extends Model
 {
     
-    public function relaxs()
+    public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('\App\User');
     }
 }

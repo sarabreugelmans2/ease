@@ -28,6 +28,6 @@ class CreateRelaxsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('relaxs');
+        Schema::dropIfExists('relaxes');
     }
 }
