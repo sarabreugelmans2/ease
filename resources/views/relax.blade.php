@@ -18,7 +18,8 @@ Track relax
 @endif
 
     <div class="relax">
-        <form action="" method="post" id="uploadForm">
+        <form action="{{action('RelaxController@store')}}" method="POST">
+            @csrf    
             <input type="radio" value="0" name="status">
             <label for="less"> Less relaxed </label>
             <input type="radio" value="1" name="status">
@@ -26,7 +27,7 @@ Track relax
             <input type="radio" value="2" name="status">
             <label for="more"> More relaxed </label> 
 
-            <input type="submit" value="Submit" name="submit" class="button">
+            <input type="submit" value="Submit" name="submit">
         </form>    
     </div>
 @endsection

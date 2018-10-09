@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Relax;
 
 class RelaxController extends Controller
 {
@@ -18,10 +19,11 @@ class RelaxController extends Controller
     
     $relax = new Relax;
 
-    $relax->user_id = $request->name;
+   // $relax->user_id = $request->name;
     $relax->status= $request->status;
-    
-    $flight->save();
+    $relax->user_id=1;
+    $relax->save();
+    return redirect('/');
 
     
     }
