@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+
+
 class UserLoggedIn extends Controller
 {
     public function auth(Request $request)
@@ -37,17 +39,9 @@ class UserLoggedIn extends Controller
             $newUser->save();
             }
 
-            /*if((\DB::table('users')->where('email', $email)->first())==null){
-                \DB::table('users')->insert(
-                    [   'firstName' => $firstName,
-                        'lastName' => $lastName,
-                        'email' => $email, 
-                        'token' => $token]
-                );
-            }*/
-            
-           // $cookie = Cookie::make('userCookie', $firstName);
-
+        /* $userId = \App\User::where('token','=', $token)->pluck('id');
+           $cookie = Cookie::make('userCookie', $userId);
+           */
             //dd($token);
            return redirect('/');
 

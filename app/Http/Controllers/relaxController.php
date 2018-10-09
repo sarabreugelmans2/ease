@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Relax;
 
+
+
 class RelaxController extends Controller
 {
     public function relax(){
+        
         return view('relax');
+
     }
 
     public function store(Request $request){
@@ -19,10 +23,11 @@ class RelaxController extends Controller
     
     $relax = new Relax;
 
-   // $relax->user_id = $request->name;
     $relax->status= $request->status;
+    //hardcoded->uit een koekje halen?
     $relax->user_id=1;
     $relax->save();
+
     return redirect('/');
 
     
