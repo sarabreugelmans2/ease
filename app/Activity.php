@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     public $timestamps = false;
+    protected $dates = ['startTime', 'endTime'];
+
     public function episode()
     {
         return $this->belongsTo('\App\Episode');
