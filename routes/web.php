@@ -11,30 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', function () {
-    return view('home');
-});
+// ----- ALL GET REQUESTS -----
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/', function () { return view('welcome');});
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/home', 'HomeController@home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/login', 'LoginController@login');
+
+Route::get('/profile', 'ProfileController@profile');
+
+Route::get('/dashboard', 'DashboardController@dashboard');
 
 Route::get('/loggedin', 'UserLoggedIn@auth');
 
 Route::get('/relax', 'RelaxController@relax');
 
-Route::post('/', 'RelaxController@store');
-
 Route::get('/calendar', 'CalendarController@show');
+
+
+// ----- ALL POST REQUESTS -----
+
+Route::post('/', 'RelaxController@store');
