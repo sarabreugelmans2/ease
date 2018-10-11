@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+//use App\Http\Controllers\Auth\LoginController;
 use App\User;
 
 
@@ -28,22 +30,27 @@ class UserLoggedIn extends Controller
             $lastName=$body_array->athlete->lastname;
             $email=$body_array->athlete->email;
             
-            $count = \App\User::where('token', $token)->count();
-        
-            if($count==0){
-            $newUser= new User;
-            $newUser->firstName= $firstName;
-            $newUser->lastName= $lastName;
-            $newUser->email =$email;
-            $newUser->token= $token;
-            $newUser->save();
+            $user = \App\User::where('token', $token)->first();
+            
+            if($user== NULL){
+                $user= new User;
+                $user->firstName= $firstName;
+                $user->lastName= $lastName;
+                $user->email =$email;
+                $user->token= $token;
+                $user->save();
             }
 
-        /* $userId = \App\User::where('token','=', $token)->pluck('id');
-           $cookie = Cookie::make('userCookie', $userId);
-           */
-            //dd($token);
-           return redirect('/');
+            // zoek user op basis van token
+            // niet tellen, maar wel de user opvangen in $user
+            // $user = 
+            // null vs. User
+           // Auth::login($user);
+
+       // $userId = \App\User::where('token','=', $token)->pluck('id');
+           
+        
+        return redirect('/');
 
         }else{
             echo $res->getStatusCode();
