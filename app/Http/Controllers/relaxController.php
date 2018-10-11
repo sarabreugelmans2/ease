@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Relax;
 
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 
 class RelaxController extends Controller
@@ -16,19 +18,20 @@ class RelaxController extends Controller
     }
 
     public function store(Request $request){
-    //is de POST geldig( niet leeg) 
-        $this->validate($request, [
-            'status' => 'required'
-        ]);
-    
-    $relax = new Relax;
+        //is de POST geldig( niet leeg) 
+            $this->validate($request, [
+                'status' => 'required'
+            ]);
+        //get userId from session
+        $userId =Auth::user()->id;
+        
+        //make new row in table relax        
+        $relax = new Relax;
+        $relax->status= $request->status;
+        $relax->user_id=$userId;
+        $relax->save();
 
-    $relax->status= $request->status;
-    //hardcoded->uit een koekje halen?
-    $relax->user_id=1;
-    $relax->save();
-
-    return redirect('/');
+        return redirect('/');
 
     
     }

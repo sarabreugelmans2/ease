@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-//use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Contracts\Auth\Authenticatable;
 use App\User;
 
 
@@ -30,8 +30,10 @@ class UserLoggedIn extends Controller
             $lastName=$body_array->athlete->lastname;
             $email=$body_array->athlete->email;
             
+            //haal user met token(url) uit de db
             $user = \App\User::where('token', $token)->first();
             
+            //als de user niet bestaat, maak een nieuwe aan
             if($user== NULL){
                 $user= new User;
                 $user->firstName= $firstName;
@@ -41,16 +43,10 @@ class UserLoggedIn extends Controller
                 $user->save();
             }
 
-            // zoek user op basis van token
-            // niet tellen, maar wel de user opvangen in $user
-            // $user = 
-            // null vs. User
-           // Auth::login($user);
-
-       // $userId = \App\User::where('token','=', $token)->pluck('id');
+            //log existing user in app
+            \Auth::login($user);
            
-        
-        return redirect('/');
+             return redirect('/');
 
         }else{
             echo $res->getStatusCode();
