@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ActivitiesSeeder::class);
         $this->call(UsersSeeder::class);
-        $this->call(EpisodesSeeder::class);
         $this->call(HabitSeeder::class);
+        $this->call(RelaxesSeeder::class);
+
     }
 }

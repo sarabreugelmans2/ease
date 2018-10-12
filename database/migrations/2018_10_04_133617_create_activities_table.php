@@ -15,10 +15,7 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('episode_id')->nullable()->unsigned();
-           
             $table->integer('habit_id')->unsigned();
-           
             $table->integer('user_id')->unsigned();
             $table->dateTime('startTime');
             $table->dateTime('endTime');
