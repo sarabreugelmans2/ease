@@ -3,7 +3,9 @@
 
 //style
 .nav{
-    width: 100px;
-    height: 100px;
-    background: $ease-blue;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
+    background-color: $ease-blue;
 }
