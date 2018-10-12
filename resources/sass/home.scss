@@ -1,0 +1,42 @@
+// Variables
+@import 'variables';
+
+//style
+#ActiveHabit{
+    width: $container-width;
+    height: $container-width;
+    margin: 5vh auto 0 auto;
+    border: 2px solid $border-grey;
+    border-radius: 30%;
+}
+
+.subhabit{
+    display: flex;
+    width: $container-width;
+    margin: 5vh auto 0 auto;
+    justify-content: space-between;
+}
+
+.subhabit .subhabit-item{
+    width: 12vh;
+    height: 12vh;
+    border:1px solid $border-grey;
+    border-radius: 30%;
+}
+.progressBar{
+    position: relative;
+    width: $container-width;
+    height: 8px;
+    margin: 40px auto 0 auto;
+    border: 1px solid $border-grey;
+    border-radius: 10px;
+}
+
+.progressBar--progress{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    background-color: $ease-blue;
+}

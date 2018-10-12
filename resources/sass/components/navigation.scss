@@ -1,5 +1,5 @@
 // Variables
-@import 'variables';
+@import '../variables';
 
 //style
 .navbar-laravel {
@@ -25,6 +25,6 @@
 }
 
 .nav .nav-icon--middle{
-    border-left: 2px solid #B6B6B7;
-    border-right: 2px solid #B6B6B7;
+    border-left: 2px solid $border-grey;
+    border-right: 2px solid $border-grey;
 } 
