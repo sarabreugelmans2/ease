@@ -1,0 +1,13 @@
+// Variables
+@import '../variables';
+
+//style
+.btn--CTA{
+    height: fit-content;
+    padding: 5px 25vw;
+    border-radius: 50px;
+    background-color: $ease-blue;
+    color: white;
+    text-decoration: none;
+    font-size: 1.6em;
+}
