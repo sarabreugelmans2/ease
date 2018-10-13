@@ -1,6 +1,6 @@
 @extends('layouts/app')
-<link rel="stylesheet" href="{{ asset('css/interests.css') }}">
 <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/interests.css') }}">
 
 <p class="instructions">Select what you like (At least 4)</p>
 
