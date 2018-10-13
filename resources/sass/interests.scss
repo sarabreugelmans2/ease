@@ -1,0 +1,24 @@
+// Variables
+@import 'variables';
+
+//style
+.habits{
+    width: $container-width;
+    height: 70vh;
+    margin: auto;
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30vw 30vw;
+    grid-gap: 35px;
+}
+
+.habit{
+    display: flex;
+    width: 100%;
+    height: calc((80vw / 2) - 20px);
+    border-radius: 40px;
+    border: 1px solid purple;
+    justify-content: center;
+    align-items: center;
+}

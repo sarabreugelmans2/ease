@@ -20,6 +20,8 @@ Route::get('/home', 'HomeController@home');
 
 Route::get('/login', 'LoginController@login');
 
+Route::get('/interests', 'InterestsController@index');
+
 Route::get('/profile', 'ProfileController@profile');
 
 Route::get('/dashboard', 'DashboardController@dashboard');
