@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class InterestsController extends Controller
 {
     public function index(){
-        return view('interests');
+        $data['habits'] = \DB::table('habits')->get();
+        return view('interests', $data);
     }
 }

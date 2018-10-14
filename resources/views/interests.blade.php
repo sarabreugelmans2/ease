@@ -5,40 +5,11 @@
 <p class="instructions">Select what you like (At least 4)</p>
 
 <div class="habits">
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
-
-    <div class="habit">
-        <p>breathing</p>
-    </div>
+    @foreach ($habits as $habit)
+        <div class="habit">
+            <p>{{ $habit->name }}</p>
+        </div>
+    @endforeach
 </div>
 
 <div class="CTA_bg">
