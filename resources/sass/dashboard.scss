@@ -5,7 +5,7 @@
 .menu{
     position: relative;
     display: flex;
-    width: 80vw;
+    width: $container-width;
     height: 40px;
     margin: auto;
     border: 2px solid $ease-blue;
@@ -42,4 +42,52 @@
     top: 0px;
     left: 0px;
     transition: left 0.5s ease;
+}
+
+.stats_wrapper{
+    margin-top: 70px;    
+}
+
+.habit{
+    width: $container-width;
+    margin: 30px auto;
+}
+
+.habit--name{
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+.habit--progress-wrapper{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    border-radius: 50px;
+    border: 2px solid $ease-blue;
+}
+
+.habit--progress-fill{
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 30%;
+    height: 100%;
+    background-color: $ease-blue;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.habit--progress-number{
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+}
+
+.habit--levels-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
