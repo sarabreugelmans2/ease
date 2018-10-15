@@ -22,6 +22,7 @@ class CreateActivitiesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->dateTime('startTime');
             $table->dateTime('endTime');
+            $table->integer('strava_id')->default(0);
             $table->boolean('finished')->default(false);
         });
     }

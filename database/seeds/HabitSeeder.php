@@ -16,7 +16,8 @@ class HabitSeeder extends Seeder
             ['name'=>'Walking', 'description'=> 'Go outside and take a walk'],
             ['name'=>'Stargazing', 'description'=> 'Gaze at the stars, get lost in the mistery of the universe'],
             ['name'=>'Cloudwatching', 'description'=> 'Watch the clouds, find the story your maker wants to tell you'],
-            ['name'=>'Running', 'description'=> 'Go for a run to clear your mind']
+            ['name'=>'Running', 'description'=> 'Go for a run to clear your mind'],
+            ['name'=>'Go outside', 'description'=> "Don't stay indoor all day"]
         ];
         $habit= \App\Habit::insert($data);
     }
