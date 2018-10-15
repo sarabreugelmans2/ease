@@ -32,7 +32,7 @@ Route::get('/relax', 'RelaxController@relax');
 
 Route::get('/calendar', 'CalendarController@show');
 
-
+Route::get('/update', 'StravaApiController@update');
 // ----- ALL POST REQUESTS -----
 
 Route::post('/', 'RelaxController@store');
