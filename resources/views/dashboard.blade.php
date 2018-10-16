@@ -6,10 +6,10 @@
 <div class="menu">
     <div class="selector"></div>
     <div class="menuOptions--option selected">
-        <a href="">level</a>
+        <a href="#">level</a>
     </div>
     <div class="menuOptions--option">
-        <a href="">calender</a>
+        <a href="/calendar">calendar</a>
     </div>
 </div>
 
