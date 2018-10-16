@@ -1,0 +1,35 @@
+// Variables
+@import 'variables';
+body{
+    background: black;
+}
+.relax input[type="radio"]
+{
+    display:none;
+}
+
+.relax  
+{
+    width: $container-width;
+    background-color:yelow;
+    /*padding: 10px 10px;
+    margin:10px;
+    border: none;
+    background-color:#41e1fc;
+    display:inline-block;
+    color:white;
+    border-radius:5px;*/
+  
+}
+/*
+.relax input:checked + label 
+{
+    background-color: #b3f3fe;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+  .relax input:hover + label {
+    background-color: #b3f3fe;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }*/
