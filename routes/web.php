@@ -14,7 +14,7 @@
 
 // ----- ALL GET REQUESTS -----
 
-Route::get('/', function () { return view('welcome');});
+Route::get('/', 'HomeController@home');
 
 Route::get('/home', 'HomeController@home');
 
