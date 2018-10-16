@@ -1,4 +1,6 @@
 @extends('layouts/app')
+<link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/relax.css') }}">
 @section('title')
 Track relax
 @endsection
@@ -20,14 +22,29 @@ Track relax
     <div class="relax">
         <form action="{{action('RelaxController@store')}}" method="POST">
             @csrf    
-            <input type="radio" value="0" name="status">
-            <label for="less"> Less relaxed </label>
-            <input type="radio" value="1" name="status">
-            <label for="same">Same as before my relaxation habbit </label>
-            <input type="radio" value="2" name="status">
-            <label for="more"> More relaxed </label> 
+            <div class="input_relax">
+                
+                <label > 
+                <input type="radio" value="0" name="status" class="btn--relax">
+                <img class="logo" src="{{ asset('img/smiley_sad.jpg') }}"> 
+                Less relaxed </label>
+                
+                <label >
+                <input type="radio" value="1" name="status" class="btn--relax">
+                <img class="logo" src="{{ asset('img/smiley_neutral.jpg') }}"> 
+                Same as before my relaxation habbit </label>
 
-            <input type="submit" value="Submit" name="submit">
+                <label>
+                <input type="radio" value="2" name="status"
+                class="btn--relax">
+                <img class="logo" src="{{ asset('img/smiley_happy.jpg') }}"> 
+                More relaxed </label> 
+            </div>
+
+
+            <div class="CTA_bg">
+            <input type="submit" value="Submit" name="submit" class="btn--CTA">
+            </div>
         </form>    
     </div>
 @endsection
