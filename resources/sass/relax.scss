@@ -4,54 +4,62 @@
 body{
     background: black;
 }
+.relax{
+    margin-top:10%;
+    margin-bottom:0%;
+    
+}
+.input_relax{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;    
+   grid-gap:5%;
+   
+}
 .input_relax label > input{
     visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }
 .input_relax label > input + img{ /* IMAGE STYLES */
     cursor:pointer;
-    border:2px solid transparent;
+   
+
     
   }
 
-label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:2px solid #f00;
-}
-/*
-.btn--relax{
-    width:20%;
+.input_relax label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+    -webkit-box-shadow: 7px 10px 5px 0px $border-grey;
+    -moz-box-shadow: 7px 10px 5px 0px $border-grey;
+    box-shadow: 7px 10px 5px 0px $border-grey;
 }
 
 
+.img_relax{
+width:100%;
+border-radius:0.5em;
+   
+}
 .input_relax label  
 {
-    padding: 10px 10px;
-    margin:10px;
-    border: none;
-    background-color:$nav-selected;
-    display:inline-block;
-    color:white;
-    border-radius:5px;
-  
+   
+    display:inline;
+   
+   
+}
+.input_relax label p{
+    display:none;
 }
 
-
-.input_relax label > input:checked + label 
-{
-    background-color: green;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color:yellow
-}
-.input_relax label > input:hover + label {
-    background-color: yellow;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-*/
-
-.relax .btn--CTA{
-    height:auto;
+//DUBBEL
+.CTA_bg{
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    padding: 20px 0px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 8px 30px 5px rgb(126, 126, 126);
 }
 
  

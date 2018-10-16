@@ -6,7 +6,7 @@ Track relax
 @endsection
 @section('content')
     <h1>Hooray, you completed your daily session.</h1>
-    <h2>How are you feeling now? </h2>
+    <h2>Did you like this session? </h2>
 <!-- Als de form wordt doorgestuurd en validation = false, wordt $errors automatisch gemaakt -->
 
 @if (count($errors) > 0)
@@ -26,19 +26,19 @@ Track relax
                 
                 <label > 
                 <input type="radio" value="0" name="status" class="btn--relax">
-                <img class="logo" src="{{ asset('img/smiley_sad.jpg') }}"> 
-                Less relaxed </label>
+                <img class="img_relax" src="{{ asset('img/smiley_sad.jpg') }}"> 
+                <p>Less relaxed</p> </label>
                 
                 <label >
                 <input type="radio" value="1" name="status" class="btn--relax">
-                <img class="logo" src="{{ asset('img/smiley_neutral.jpg') }}"> 
-                Same as before my relaxation habbit </label>
+                <img class="img_relax" src="{{ asset('img/smiley_neutral.jpg') }}"> 
+                <p>Same as before my relaxation habbit </p> </label>
 
                 <label>
                 <input type="radio" value="2" name="status"
                 class="btn--relax">
-                <img class="logo" src="{{ asset('img/smiley_happy.jpg') }}"> 
-                More relaxed </label> 
+                <img class="img_relax" src="{{ asset('img/smiley_happy.jpg') }}"> 
+                <p> More relaxed </p></label> 
             </div>
 
 
