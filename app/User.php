@@ -12,7 +12,7 @@ class User extends Model implements Authenticatable
   
     public function relaxs()
     {
-        return $this->hasMany('\App\Relax');
+        return $this->hasMany('\App\Relax', 'user_id');
     }
 
     public function activities(){

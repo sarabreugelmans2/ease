@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRelaxsTable extends Migration
+class CreateRelaxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateRelaxsTable extends Migration
         Schema::create('relaxes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            
+            $table->integer('habit_id');
             $table->tinyInteger('status');
             $table->timestamps();
         });
