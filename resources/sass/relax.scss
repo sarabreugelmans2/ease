@@ -1,29 +1,30 @@
 // Variables
 @import 'variables';
 
-body{
-    background: black;
-}
+
 .relax{
     margin-top:10%;
-    margin-bottom:0%;
+    margin-bottom:0%;  
     
 }
+.title_relax{
+    margin-left:10%;
+    margin-right:10%;
+}
+
 .input_relax{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;    
-   grid-gap:5%;
-   
+    grid-gap:5%;
+    margin:20px;
 }
+
 .input_relax label > input{
     visibility: hidden; /* Makes input not-clickable */
-  position: absolute; /* Remove input from document flow */
+    position: absolute; /* Remove input from document flow */
 }
 .input_relax label > input + img{ /* IMAGE STYLES */
-    cursor:pointer;
-   
-
-    
+    cursor:pointer; 
   }
 
 .input_relax label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
@@ -32,25 +33,21 @@ body{
     box-shadow: 7px 10px 5px 0px $border-grey;
 }
 
-
 .img_relax{
-width:100%;
-border-radius:0.5em;
-   
+    width:100%;
+    border-radius:0.5em; 
 }
-.input_relax label  
-{
-   
-    display:inline;
-   
-   
+
+.input_relax label{
+    display:inline;  
 }
+
 .input_relax label p{
     display:none;
 }
 
 //DUBBEL
-.CTA_bg{
+.relax .CTA_bg{
     position: absolute;
     bottom: 0px;
     display: flex;

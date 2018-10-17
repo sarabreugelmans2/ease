@@ -16,6 +16,7 @@ class CreateRelaxsTable extends Migration
         Schema::create('relaxes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            
             $table->tinyInteger('status');
             $table->timestamps();
         });
