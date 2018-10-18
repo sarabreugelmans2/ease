@@ -7,8 +7,9 @@ Admin dashboard
 
 @section('content')
     <h1> How users feel about our habits </h1>
-  @for($i=1; $i<=6;$i++)
-    <div>
+  
+    @for($i=1; $i<=6;$i++)
+    <div class="charts">
         <h1>
         </h1>
     {!! ${'chart'.$i}->container() !!}
