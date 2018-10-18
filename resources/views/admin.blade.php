@@ -6,7 +6,7 @@ Admin dashboard
 @endsection
 
 @section('content')
-    <h1> Admin </h1>
+    <h1> How users feel about our habits </h1>
   @for($i=1; $i<=6;$i++)
     <div>
         <h1>

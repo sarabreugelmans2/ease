@@ -18,4 +18,8 @@ class User extends Model implements Authenticatable
     public function activities(){
         return $this->hasMany('\App\Activity', 'user_id');
     }
+
+    public function isAdmin(){
+        return $this->admin;
+    }
 }

@@ -16,25 +16,25 @@
 
 Route::get('/', 'HomeController@home');
 
-Route::get('/home', 'HomeController@home');
+Route::get('/home', 'HomeController@home')->middleware('auth');
 
-Route::get('/login', 'LoginController@login');
+Route::get('/login', [ 'as' => 'login', 'uses' =>'LoginController@login']);
 
-Route::get('/interests', 'InterestsController@index');
+Route::get('/interests', 'InterestsController@index')->middleware('auth');
 
-Route::get('/profile', 'ProfileController@profile');
+Route::get('/profile', 'ProfileController@profile')->middleware('auth');
 
-Route::get('/dashboard', 'DashboardController@dashboard');
+Route::get('/dashboard','DashboardController@dashboard')->middleware('auth');
 
 Route::get('/loggedin', 'UserLoggedIn@auth');
 
-Route::get('/relax', 'RelaxController@relax');
+Route::get('/relax', 'RelaxController@relax')->middleware('auth');
 
-Route::get('/calendar', 'CalendarController@show');
+Route::get('/calendar', 'CalendarController@show')->middleware('auth');
 
-Route::get('/update', 'StravaApiController@update');
+Route::get('/update', 'StravaApiController@update')->middleware('auth');
 
-Route::get('/admin', 'AdminController@show');
+Route::get('/admin', 'AdminController@show')->middleware('admin');
 // ----- ALL POST REQUESTS -----
 
-Route::post('/', 'RelaxController@store');
+Route::post('/', 'RelaxController@store')->middleware('auth');
