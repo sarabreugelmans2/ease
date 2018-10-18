@@ -11,28 +11,31 @@
 |
 */
 
-
-// ----- ALL GET REQUESTS -----
-
-Route::get('/', function () { return view('welcome');});
-
-Route::get('/home', 'HomeController@home');
-
-Route::get('/login', 'LoginController@login');
-
-Route::get('/interests', 'InterestsController@index');
-
-Route::get('/profile', 'ProfileController@profile');
-
-Route::get('/dashboard', 'DashboardController@dashboard');
-
+Route::get('/login', [ 'as' => 'login', 'uses' =>'LoginController@login']);
 Route::get('/loggedin', 'UserLoggedIn@auth');
 
-Route::get('/relax', 'RelaxController@relax');
+//check trough middleware if user is logged in
+Route::group(['middleware' => ['auth']], function() {
+    // ----- ALL GET REQUESTS ----- 
+    Route::get('/', 'HomeController@home');
 
-Route::get('/calendar', 'CalendarController@show');
+    Route::get('/home', 'HomeController@home');
 
+    Route::get('/interests', 'InterestsController@index');
 
-// ----- ALL POST REQUESTS -----
+    Route::get('/profile', 'ProfileController@profile');
 
-Route::post('/', 'RelaxController@store');
+    Route::get('/dashboard','DashboardController@dashboard');
+
+    Route::get('/relax', 'RelaxController@relax');
+
+    Route::get('/calendar', 'CalendarController@show');
+
+    Route::get('/update', 'StravaApiController@update');
+
+    Route::get('/admin', 'AdminController@show')->middleware('admin');
+
+    // ----- ALL POST REQUESTS -----
+    Route::post('/', 'RelaxController@store');
+
+});

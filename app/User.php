@@ -12,10 +12,15 @@ class User extends Model implements Authenticatable
   
     public function relaxs()
     {
-        return $this->hasMany('\App\Relax');
+        return $this->hasMany('\App\Relax', 'user_id');
     }
 
     public function activities(){
         return $this->hasMany('\App\Activity', 'user_id');
+    }
+
+    //check if user is admin
+    public function isAdmin(){
+        return $this->admin;
     }
 }
