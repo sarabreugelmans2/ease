@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
 <script src="{{ asset('js/navigation.js') }}"></script>
 <div class="nav">
     <div class="nav-icon">
