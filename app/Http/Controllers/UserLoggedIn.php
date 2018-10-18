@@ -41,12 +41,18 @@ class UserLoggedIn extends Controller
                 $user->email =$email;
                 $user->token= $token;
                 $user->save();
+                $newuser = true;
             }
 
             //log existing user in app
             \Auth::login($user);
            
-             return redirect('/');
+            if($newuser){
+                return redirect('/interests');
+            }else{
+                return redirect('/');
+            }
+             
 
         }else{
             echo $res->getStatusCode();
