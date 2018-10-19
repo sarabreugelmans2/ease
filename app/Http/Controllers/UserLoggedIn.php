@@ -32,7 +32,7 @@ class UserLoggedIn extends Controller
             
             //haal user met token(url) uit de db
             $user = \App\User::where('token', $token)->first();
-            
+            $newuser = false;
             //als de user niet bestaat, maak een nieuwe aan
             if($user== NULL){
                 $user= new User;
