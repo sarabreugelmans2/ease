@@ -39,6 +39,14 @@
     margin: 0px;
     text-align: center;
 }
+.habit_selector{
+    display: none;
+}
+
+.habit_selector:checked + .habit{
+    border: 3px solid $border-grey;
+  } 
+
 
 .CTA_bg{
     position: absolute;
