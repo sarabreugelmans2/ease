@@ -38,4 +38,5 @@ Route::group(['middleware' => ['auth']], function() {
     // ----- ALL POST REQUESTS -----
     Route::post('/', 'RelaxController@store');
 
+    Route::post('/interests', 'InterestsController@save');
 });
