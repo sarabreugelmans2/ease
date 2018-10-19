@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserHabitTable extends Migration
+class CreateUserHabitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserHabitTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_habit', function (Blueprint $table) {
+        Schema::create('user_habits', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();;
@@ -31,6 +31,6 @@ class CreateUserHabitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_habit');
+        Schema::dropIfExists('user_habits');
     }
 }
