@@ -11,4 +11,10 @@ class Relax extends Model
     {
         return $this->belongsTo('\App\User');
     }
+
+     
+    public function habit()
+    {
+        return $this->belongsTo('\App\Habit');
+    }
 }

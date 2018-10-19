@@ -19,8 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('lastName');
             $table->string('email');
             $table->string('token');
+            $table->boolean('admin')->default(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+
         });
     }
 

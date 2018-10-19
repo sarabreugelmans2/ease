@@ -27,16 +27,20 @@ class StravaApiController extends Controller
                 $start = date("Y-m-d h:i:s", $start_time);
                 $end = date("Y-m-d H:i:s", strtotime('+'.$resource->elapsed_time.' seconds',$start_time));
                 
-                $activity = \App\Activity::where('strava_id', $strava_id)->first();
-                if($activity== NULL){
-                    $activity = new Activity;
-                }
+                if(!in_array($type, array("Yoga", "Workout", "StairStepper", "WeightTraining", "Crossfit","Handcycle"))){
+                    $activity = \App\Activity::where('strava_id', $strava_id)->first();
+                    if($activity== NULL){
+                        $activity = new Activity;
+                    }
                     if($type == "Run"){  
                         $activity->habit_id = 5;
+                        echo("run ");
                     }else if($type == "Walk"){
                         $activity->habit_id = 2;
+                        echo("walk ");
                     }else{
                         $activity->habit_id = 6;
+                        echo("ander ");
                     }
                     $activity->strava_id = $strava_id;
                     $activity->user_id=$user->id;
@@ -44,21 +48,24 @@ class StravaApiController extends Controller
                     $activity->endTime = $end;
                     $activity->finished = true;
                     $activity->save();
-                
+                    echo("succes  ");
+                }else{
+                    echo("Not outside");
+                }
             };
 
             
-            dd($body_array);
             
-            return redirect('/');
+            
 
         }else{
             echo $res->getStatusCode();
         }
 
+        //dd($body_array);
 
 
-        return view();//responce();
+        return redirect('/');
     }
     
 }

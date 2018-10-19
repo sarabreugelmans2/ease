@@ -11,6 +11,6 @@ class RelaxesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\Relax::class, 10)->create();
     }
 }

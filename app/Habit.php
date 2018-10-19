@@ -11,4 +11,9 @@ class Habit extends Model
         return $this->hasMany('\App\Activity','habit_id');
     }
 
+    public function relaxs()
+    {
+        return $this->hasMany('\App\Relax', 'habit_id');
+    }
+
 }

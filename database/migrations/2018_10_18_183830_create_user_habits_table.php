@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRelaxsTable extends Migration
+class CreateUserHabitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateRelaxsTable extends Migration
      */
     public function up()
     {
-        Schema::create('relaxes', function (Blueprint $table) {
+        Schema::create('user_habits', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->tinyInteger('status');
+
+            $table->integer('user_id')->unsigned();;
+            $table->integer('habit_id')->unsigned();;
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('habit_id')->references('id')->on('habits');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateRelaxsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('relaxes');
+        Schema::dropIfExists('user_habits');
     }
 }

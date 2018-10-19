@@ -1,10 +1,13 @@
 @extends('layouts/app')
+<link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/relax.css') }}">
 @section('title')
 Track relax
 @endsection
-@section('content')
+    <div class="title_relax">
     <h1>Hooray, you completed your daily session.</h1>
-    <h2>How are you feeling now? </h2>
+    <h2>Did you like this session? </h2>
+    
 <!-- Als de form wordt doorgestuurd en validation = false, wordt $errors automatisch gemaakt -->
 
 @if (count($errors) > 0)
@@ -16,18 +19,33 @@ Track relax
         </ul>
     </div>
 @endif
+</div>
 
     <div class="relax">
         <form action="{{action('RelaxController@store')}}" method="POST">
             @csrf    
-            <input type="radio" value="0" name="status">
-            <label for="less"> Less relaxed </label>
-            <input type="radio" value="1" name="status">
-            <label for="same">Same as before my relaxation habbit </label>
-            <input type="radio" value="2" name="status">
-            <label for="more"> More relaxed </label> 
+            <div class="input_relax">
+                
+                <label > 
+                <input type="radio" value="0" name="status" class="btn--relax">
+                <img class="img_relax" src="{{ asset('img/smiley_sad.jpg') }}"> 
+                <p>Less relaxed</p> </label>
+                
+                <label >
+                <input type="radio" value="1" name="status" class="btn--relax">
+                <img class="img_relax" src="{{ asset('img/smiley_neutral.jpg') }}"> 
+                <p>Same as before my relaxation habbit </p> </label>
 
-            <input type="submit" value="Submit" name="submit">
+                <label>
+                <input type="radio" value="2" name="status"
+                class="btn--relax">
+                <img class="img_relax" src="{{ asset('img/smiley_happy.jpg') }}"> 
+                <p> More relaxed </p></label> 
+            </div>
+   
+            <div class="CTA_bg">
+            <input type="submit" value="Submit" name="submit" class="btn--CTA">
+            </div>
         </form>    
     </div>
-@endsection
+
