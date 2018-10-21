@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class StravaApiClass
 {
-    public function strava(){
+    public function getUserStats(){
         //user_id from session
         $user =  Auth::user();
         
