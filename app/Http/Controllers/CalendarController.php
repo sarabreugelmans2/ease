@@ -15,10 +15,37 @@ class CalendarController extends Controller
         $userId =Auth::user()->id;
 
         //get all activities from current user, most recent first
-        $collection= \App\Activity::where('user_id', $userId)->orderBy('endTime', 'desc')->get();
-        $data['activity']=$collection;
+        $activities= Activity::where('user_id', $userId)->get();
 
-        return view('calendar', $data);
+
+        $events = [];
+
+        //for each activity set an event in the calendar
+        foreach($activities as $a){
+            $events[] = \Calendar::event(
+                $a->habit->name,
+                true,
+                new \DateTime($a->endTime),
+                new \DateTime($a->endTime),
+                null,
+                // Add color on event
+                [
+                    'color' => '#C5E6EE'
+                ]
+            );
+        }
+        //add the events to the calendar
+        $calendar = \Calendar::addEvents($events)->setOptions(['defaultView '=>'timelineDay',
+        'header' =>
+                    [
+                        'left' => 'prev,next today',
+                        'right' => 'title',
+                        'center' =>false
+                    ]
+        ]
+        );
+        //return the calendar
+        return view('calendar',compact('calendar'));
 
     }
 }
