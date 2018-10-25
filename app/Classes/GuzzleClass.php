@@ -6,17 +6,23 @@ use Illuminate\Support\Facades\Auth;
 
 class GuzzleClass
 {
-    public function GuzzleRequest($method,$url,$auth = NULL, $query=NULL, $header =NULL){
+    private $statusCode = "";
+    
+    public function request($method, $url, $headers =NULL, $query=NULL){
         $client = new \GuzzleHttp\Client();
-        $res = $client->request($method, $url, [ 'auth' => [ null , $auth], 'query' => $query]);
+        $res = $client->request($method, $url, $headers, ['query' => $query]);
         if($res->getStatusCode()==200){
             $body = $res->getBody();
             $body_array = json_decode($body);
             return $body_array;
 
         }else{
-            return $res->getStatusCode();
+            $this->statusCode = $res->getStatusCode();
+            return false;
         }
+    }
+    public function getStatusCode() {
+        return $this->statusCode;
     }
     
 }
