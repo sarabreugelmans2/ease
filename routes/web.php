@@ -11,12 +11,14 @@
 |
 */
 
+//check through middleware if a user is already logged on and if so redirects to home
+Route::group(['middleware' => ['guest']], function(){
   
-Route::get('/login', [ 'as' => 'login', 'uses' =>'LoginController@login']);
-Route::get('/loggedin', 'UserLoggedIn@auth');
+    Route::get('/login', [ 'as' => 'login', 'uses' =>'LoginController@login']);
+    Route::get('/loggedin', 'UserLoggedIn@auth');
 
-
-//check trough middleware if user is logged in
+});
+//check through middleware if user is logged in
 Route::group(['middleware' => ['auth']], function() {
     // ----- ALL GET REQUESTS ----- 
     Route::get('/', 'HomeController@home');
