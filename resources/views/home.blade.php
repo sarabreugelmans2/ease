@@ -1,5 +1,13 @@
 @extends('layouts/app')
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
+@if ( $flash=session('message'))
+    @component('components/alert')
+        @slot('type') info @endslot
+        {{ $flash }}
+    @endcomponent
+@endif
+
 <div id="ActiveHabit"></div>
 
 <div class="subhabit">

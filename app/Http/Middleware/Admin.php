@@ -21,6 +21,7 @@ class Admin
             return $next($request);
         }
 
+        $request->session()->flash('message', 'You are not authorised to visit this page');  
         return redirect('home');
     }
 }

@@ -37,11 +37,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/admin', 'AdminController@show')->middleware('admin');
 
-  
+    Route::get('/logout', 'UserLoggedIn@logout');
 
     // ----- ALL POST REQUESTS -----
 
-    Route::get('/logout', 'UserLoggedIn@logout');
+    
     
     Route::post('/', 'RelaxController@store');
 
