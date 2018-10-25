@@ -21,4 +21,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/dashboard.scss', 'public/css')
     .sass('resources/sass/relax.scss', 'public/css')
     .sass('resources/sass/interests.scss', 'public/css')
-    .sass('resources/sass/components/errors.scss', 'public/css');
+    .sass('resources/sass/components/errors.scss', 'public/css')
+    .copyDirectory('resources/assets/img', 'public/img');
