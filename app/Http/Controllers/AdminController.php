@@ -12,6 +12,9 @@ class AdminController extends Controller
 {
     public function show()
     {
+        //Habit::all() 
+        // foreach habits as habit
+        //relax where habit_id is habit->id
         $habit1=[];
         $habit2=[];
         $habit3=[];
@@ -41,7 +44,7 @@ class AdminController extends Controller
             ]
         ]);
             //voeg data van querie toe aan chart + geeft kleurtjes
-        ${'chart'.$x}->dataset('Useropinions', 'doughnut',${'habit'.$x})->backgroundColor(['#B6B6B7','#4B667F',"#C5E6EE"]);
+        ${'chart'.$x}->dataset('Useropinions', 'doughnut',${'habit'.$x})->backgroundColor(['#DA696E','#B6B6B7',"#D7E183"]);
         }
         
             //geef de gemaakte charts aan de view

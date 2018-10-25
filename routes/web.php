@@ -11,8 +11,10 @@
 |
 */
 
+  
 Route::get('/login', [ 'as' => 'login', 'uses' =>'LoginController@login']);
 Route::get('/loggedin', 'UserLoggedIn@auth');
+
 
 //check trough middleware if user is logged in
 Route::group(['middleware' => ['auth']], function() {
@@ -35,7 +37,12 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/admin', 'AdminController@show')->middleware('admin');
 
+  
+
     // ----- ALL POST REQUESTS -----
+
+    Route::get('/logout', 'UserLoggedIn@logout');
+    
     Route::post('/', 'RelaxController@store');
 
     Route::post('/interests', 'InterestsController@save');

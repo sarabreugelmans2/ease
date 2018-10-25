@@ -35,7 +35,7 @@ class CalendarController extends Controller
             );
         }
         //add the events to the calendar
-        $calendar = \Calendar::addEvents($events)->setOptions(['defaultView '=>'timelineDay',
+        $calendar = \Calendar::addEvents($events)->setOptions(['defaultView '=>'WeekView',
         'header' =>
                     [
                         'left' => 'prev,next today',

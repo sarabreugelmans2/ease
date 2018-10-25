@@ -54,7 +54,7 @@
         </div>
     </div>
 </div>
-
+<a href="/logout"> Logout</a>
 
 @section('content')
     @component('components/navigation')

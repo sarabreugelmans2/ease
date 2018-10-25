@@ -13,4 +13,6 @@ class LoginController extends Controller
         $userstats = $UserStatsClass->getTrackedHabitsCount();
         return view('login', $userstats);
     }
+
+   
 }

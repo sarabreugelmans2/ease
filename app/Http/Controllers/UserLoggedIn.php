@@ -58,4 +58,11 @@ class UserLoggedIn extends Controller
             echo $res->getStatusCode();
         }
     }
+
+    public function logout(Request $request){
+       
+        $request->session()->flush();
+        return redirect('/login');
+      
+    }
 }
