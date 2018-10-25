@@ -10,7 +10,7 @@ class GuzzleClass
     
     public function request($method, $url, $headers =NULL, $query=NULL){
         $client = new \GuzzleHttp\Client();
-        $res = $client->request($method, $url, $headers, ['query' => $query]);
+        $res = $client->request($method, $url, ['headers' => $headers ,'query' => $query]);
         if($res->getStatusCode()==200){
             $body = $res->getBody();
             $body_array = json_decode($body);

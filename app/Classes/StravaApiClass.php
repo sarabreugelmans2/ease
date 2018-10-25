@@ -11,24 +11,21 @@ class StravaApiClass
     public function getUserStats(){
         //user_id from session
         $user =  Auth::user();
-        
+        $token = $user->token;
         //get all athlete info
-        $url = 'https://www.strava.com/api/v3/athlete?access_token='.$user->token;
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET',$url );
-        if($res->getStatusCode()==200){
-            $body = $res->getBody();
-            $body_array = json_decode($body);
+        $guzzle = new GuzzleClass();
+        $headers= ['Authorization' => 'Bearer '.$token];
+        $res = $guzzle->request("GET", 'https://www.strava.com/api/v3/athlete',$headers);
+        if($res){
             
             //get activitys
-            $athlete_id = $body_array->id;
-            $url = 'https://www.strava.com/api/v3/athletes/'. $athlete_id .'/stats?access_token='.$user->token;
-            $client = new \GuzzleHttp\Client();
-            $res = $client->request('GET',$url );
-            if($res->getStatusCode()==200){
-                $body = $res->getBody();
-                $body_array = json_decode($body);
-                return $body_array;
+            $athlete_id = $res->id;
+            $headers= ['Authorization' => 'Bearer '.$token];
+            $res = $guzzle->request("GET", 'https://www.strava.com/api/v3/athletes/'. $athlete_id .'/stats', $headers);
+            if($res){
+                return $res;
+            }else{
+                return $res->getStatusCode();
             }
 
         }else{
@@ -39,16 +36,12 @@ class StravaApiClass
     public function update(){
         //user_id from session
         $user =  Auth::user();
-        // dd($user);
-        
-        $url = 'https://www.strava.com/api/v3/athlete/activities?access_token='.$user->token;
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET',$url );
-        if($res->getStatusCode()==200){
-            $body = $res->getBody();
-            $body_array = json_decode($body);
 
-            foreach($body_array as $key => $resource){
+        $guzzle = new GuzzleClass();
+        $headers= ['Authorization' => 'Bearer '.$user->token];
+        $res = $guzzle->request("GET", 'https://www.strava.com/api/v3/athlete/activities',$headers);
+        if($res){
+            foreach($res as $key => $resource){
                 $type = $resource->type;
                 $strava_id = $resource->id;
                 $start_time = strtotime($resource->start_date);
@@ -80,14 +73,9 @@ class StravaApiClass
                 }else{
                     echo("Not outside");
                 }
-            };
-
-            
-            
-            
-
+            }
         }else{
-            echo $res->getStatusCode();
+            echo $guzzle->getStatusCode();
             return false;
         }
 
